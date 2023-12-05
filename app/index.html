@@ -5,38 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub API Demo</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        #app {
-            max-width: 600px;
-            margin: 50px auto;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        button {
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #repos {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -47,33 +16,7 @@
         <div id="repos"></div>
     </div>
 
-    <script>
-        async function fetchRepos() {
-            const username = document.getElementById('username').value;
-            const reposContainer = document.getElementById('repos');
-
-            try {
-                // Fetch user data
-                const userResponse = await fetch(`https://api.github.com/users/${username}`);
-                const userData = await userResponse.json();
-
-                // Fetch user's repositories
-                const reposResponse = await fetch(`https://api.github.com/users/${username}/repos`);
-                const reposData = await reposResponse.json();
-
-                // Display user information and repositories
-                reposContainer.innerHTML = `
-                    <h2>${userData.name || username}'s Repositories</h2>
-                    <ul>
-                        ${reposData.map(repo => `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`).join('')}
-                    </ul>
-                `;
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                reposContainer.innerHTML = '<p>Error fetching data. Please check the username and try again.</p>';
-            }
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
 
 </html>

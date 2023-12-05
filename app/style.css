@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+#app {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#repos {
+  margin-top: 20px;
+}
